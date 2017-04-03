@@ -13,16 +13,16 @@ CLIENT_SECRET <- ""
 V <- "20151015"
 
 
-lat <- "48.1827584" # latitude for starting point
-lon <- "17.0687029" # longitude for starting point
+lat <- "48.1827584" # latitude for starting point Bratislava up left corner
+lon <- "17.0687029" # longitude for starting point Bratislava up left corner
 
 distanceX <- 8000 # metrs
 distanceY <- 8000 # metrs
 
-steps <- 200 
+steps <- 200 # metrs
 radius <- 90 # direction
 
-# list with geopoiunt
+# list with geopoints
 maticeMesto <- geomatrix(lat,lon, distanceX, distanceY, steps, radius=90)
 
 # plot map with points
@@ -43,10 +43,10 @@ for(i in 1:nrow(maticeMesto)) {
 	   	lat <- maticeMesto[i,]$lat
 		lon <- maticeMesto[i,]$lon
 	    pointGps <- getListNearVenues(lat,lon,radius = 100)
-		Sys.sleep(0.7)
+		Sys.sleep(0.7) # ugly hack for limistr
 		write.table(pointGps, "bratislava_4sq_venues_zaklad.txt", row.names=F, col.names=F, append=T)
     }, error = function(errorCondition) {
-		write.table(pointGps, "fail_4sq_venues.txt", row.names=F, col.names=F, append=T)
+		write.table(i, "fail_4sq_venues.txt", row.names=F, col.names=F, append=T)
   	})  
 	cat("\n")
 	dfVenuesGPS <- rbind(dfVenuesGPS,pointGps)
