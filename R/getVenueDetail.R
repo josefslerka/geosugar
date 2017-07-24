@@ -1,7 +1,7 @@
 #' A getVenueDetail Function
 #'
-#' This function allows pretty printing of values
-#' @param love Do you love cats? Defaults to TRUE.
+#' This function return 4sq venue details
+#' @param idVenue 4sq venue detail
 #' @keywords printLog
 #' @export
 #' @examples

@@ -91,7 +91,7 @@ getListNearFacebookVenues <- function(lat,lon,distance=1000,q="") {
 			}
     }, error = function(errorCondition) {
     
-    	print(as.character(error))
+    	print(as.character(errorCondition))
   	}) 	
 
 dfList
