@@ -27,6 +27,10 @@ m <- leaflet() %>%
   addMarkers(lng=exampleVenues$lng, lat=exampleVenues$lat, popup=exampleVenues$name)
 m 
 
+# search venues
+latVenue <- "50.08398"
+lonVenue <- "14.41663"
+kavarny <- getListSearchVenues(latVenue, lonVenue, "coffee", radius = 2000)
 
 # detail mista
 getVenueDetail("4f316546e4b0f99d8848b341")
