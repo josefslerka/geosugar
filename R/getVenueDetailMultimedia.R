@@ -1,6 +1,6 @@
 #' A getVenueDetailMultimedia Function
 #'
-#' This function allows pretty printing of values
+#' This function return list of photos from 4sq venue
 #' @param love Do you love cats? Defaults to TRUE.
 #' @keywords printLog
 #' @export
@@ -43,15 +43,22 @@ getVenueDetailMultimedia <- function(idVenue) {
 								image <- tryCatch({
 								      			
 								    	
-								for(i in 1:length(json$response$venue$photos$groups$items[[1]]$id)) {
-								
-										picturePrefix <- json$response$venue$photos$groups$items[[1]]$prefix[[i]]
-										pictureSuffix <- json$response$venue$photos$groups$items[[1]]$suffix[[i]]
+								for(i in 1:length(json$response$venue$photos$groups[[1]]$items)) {
+
+
+										idUser <- json$response$venue$photos$groups[[1]]$items[[i]]$user$id	
+										platform <- json$response$venue$photos$groups[[1]]$items[[i]]$source$name
+										firstName <- json$response$venue$photos$groups[[1]]$items[[i]]$user$firstName
+										lastName <- json$response$venue$photos$groups[[1]]$items[[i]]$user$lastName	
+										gender <- json$response$venue$photos$groups[[1]]$items[[i]]$user$gender
+
+										picturePrefix <- json$response$venue$photos$groups[[1]]$items[[i]]$prefix
+										pictureSuffix <- json$response$venue$photos$groups[[1]]$items[[i]]$suffix
 										suffix <- pictureSuffix
 
 										pictureUrl <- paste0(picturePrefix, "width960", pictureSuffix, sep="")
 									
-										dfTmp <- data.frame(idVenue,pictureUrl)
+										dfTmp <- data.frame(idVenue,idUser,pictureUrl,platform,firstName,lastName,gender)
 										dfPictures <- rbind(dfPictures,dfTmp)
 								cat("\n")
 								}}, error = function(errorCondition) {
