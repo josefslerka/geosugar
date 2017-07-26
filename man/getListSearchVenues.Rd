@@ -4,17 +4,26 @@
 \alias{getListSearchVenues}
 \title{A getListSearchVenues Function}
 \usage{
-getListSearchVenues(latVenue, lonVenue, search, radius = 50000, limit = 1)
+getListSearchVenues(latVenue, lonVenue, search, radius = 5000, limit = 50)
 }
 \arguments{
-\item{love}{Do you love cats? Defaults to TRUE.}
+\item{latVenue}{latitude}
+
+\item{lonVenue}{longitude}
+
+\item{search}{query}
+
+\item{radius}{distance in meters}
+
+\item{limit}{limit of results}
 }
 \description{
-This function allows pretty printing of values
+This function return results for search in 4sq venues names
 }
 \examples{
-a <- "1234"
-cat_function(a)
+latVenue <- "50.08398"
+lonVenue <- "14.41663"
+kavarny <- getListSearchVenues(latVenue, lonVenue, "coffee", radius = 2000)
 
 }
 \keyword{printLog}

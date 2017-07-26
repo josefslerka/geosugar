@@ -7,10 +7,10 @@
 getVenueDetailMultimedia(idVenue)
 }
 \arguments{
-\item{love}{Do you love cats? Defaults to TRUE.}
+\item{idVenue}{id of 4sq venue}
 }
 \description{
-This function allows pretty printing of values
+This function return list of photos from 4sq venue
 }
 \examples{
 a <- "1234"

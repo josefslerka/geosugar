@@ -1,16 +1,21 @@
 #' A getListSearchVenues Function
 #'
-#' This function allows pretty printing of values
-#' @param love Do you love cats? Defaults to TRUE.
+#' This function return results for search in 4sq venues names
+#' @param latVenue latitude
+#' @param lonVenue longitude
+#' @param search query
+#' @param radius distance in meters
+#' @param limit limit of results
 #' @keywords printLog
 #' @export
 #' @examples
-#' a <- "1234"
-#' cat_function(a)
+#' latVenue <- "50.08398"
+#' lonVenue <- "14.41663"
+#' kavarny <- getListSearchVenues(latVenue, lonVenue, "coffee", radius = 2000)
 #' 
 
 
-getListSearchVenues <- function(latVenue,lonVenue,search,radius=50000,limit=1) {
+getListSearchVenues <- function(latVenue,lonVenue,search,radius=5000,limit=50) {
 
 			dfList <- data.frame(
 									name <- character(), 
@@ -46,8 +51,10 @@ getListSearchVenues <- function(latVenue,lonVenue,search,radius=50000,limit=1) {
 				lonVenue,
 				"&query=",
 				URLencode(search),
-				"&limit=50",
-				"&radius=50000",
+				"&limit=",
+				limit,
+				"&radius=",
+				radius,
 			    "&client_id=",
 				CLIENT_ID,
 				"&client_secret=",
@@ -64,9 +71,9 @@ getListSearchVenues <- function(latVenue,lonVenue,search,radius=50000,limit=1) {
 			for (n in 1:limit) {
 
 
-						name <- json$response$venues$name[[n]]
-						id <- json$response$venues$id[[n]]
-						url <- json$response$venues$url[[n]]
+						name <- json$response$venues[[n]]$name
+						id <- json$response$venues[[n]]$id
+						url <- json$response$venues[[n]]$url
 
 						# idCat <- json$response$venues[[n]]$categories[[1]]$id
 						# nameCat <- json$response$venues[[n]]$categories[[1]]$name				
@@ -75,20 +82,20 @@ getListSearchVenues <- function(latVenue,lonVenue,search,radius=50000,limit=1) {
 
 
 										idCat <- tryCatch({
-      										json$response$venues$categories[[n]]$id
+											json$response$venues[[n]]$categories[[1]]$id
     									}, error = function(errorCondition) {
 						                	""
   									    })  	
 
 								      	nameCat <- tryCatch({
-      										json$response$venues$categories[[n]]$name	
+								      		json$response$venues[[n]]$categories[[1]]$name
+      										
     									}, error = function(errorCondition) {
 						                	""
   									    })  
 
 								      	shortNameCat <- tryCatch({
-      										json$response$venues$categories[[n]]$shortName
-								
+								      		json$response$venues[[n]]$categories[[1]]$shortName
     									}, error = function(errorCondition) {
 						                	""
   									    })  
@@ -97,17 +104,17 @@ getListSearchVenues <- function(latVenue,lonVenue,search,radius=50000,limit=1) {
 
 
 
-						statsCheckinCount <- json$response$venues$stats$checkinsCount[[n]]
-						statsUserCount <- json$response$venues$stats$usersCount[[n]]
-						statsTipCount <- json$response$venues$stats$tipCount[[n]]	
+						statsCheckinCount <- json$response$venues[[n]]$stats$checkinsCount
+						statsUserCount <- json$response$venues[[n]]$stats$usersCount
+						statsTipCount <- json$response$venues[[n]]$stats$tipCount
 
-						adress <- json$response$venues$location$address[[n]]
-						lat <- json$response$venues$location$lat[[n]]
-						lng <- json$response$venues$location$lng[[n]]
-						postalCode <- json$response$venues$location$postalCode[[n]]
-						city <- json$response$venues$location$city[[n]]
-						state <- json$response$venues$location$state[[n]]
-						country <- json$response$venues$location$country[[n]]
+						adress <- json$response$venues[[n]]$location$address
+						lat <- json$response$venues[[n]]$location$lat
+						lng <- json$response$venues[[n]]$location$lng
+						postalCode <- json$response$venues[[n]]$location$postalCode
+						city <- json$response$venues[[n]]$location$city
+						state <- json$response$venues[[n]]$location$state
+						country <- json$response$venues[[n]]$location$country
 
 
 

@@ -1,7 +1,7 @@
 #' A getVenueDetailMultimedia Function
 #'
 #' This function return list of photos from 4sq venue
-#' @param love Do you love cats? Defaults to TRUE.
+#' @param idVenue id of 4sq venue
 #' @keywords printLog
 #' @export
 #' @examples
@@ -60,7 +60,7 @@ getVenueDetailMultimedia <- function(idVenue) {
 									
 										dfTmp <- data.frame(idVenue,idUser,pictureUrl,platform,firstName,lastName,gender)
 										dfPictures <- rbind(dfPictures,dfTmp)
-								cat("\n")
+								
 								}}, error = function(errorCondition) {
 								                ""
 								        }) 

@@ -37,6 +37,8 @@ exampleSimilary <- getListOfSimilaryVenues("4f316546e4b0f99d8848b341")
 # venues podobne 4SQ mistu
 exampleNext <- getListOfNextVenues("4f316546e4b0f99d8848b341")
 
+#photos from hooters
+hooters <- getVenueDetailMultimedia("5346651f498e32df69ee5be1")
 
 ### siť podniku podobnych hipster podniku Cobra
 startPoint <- "575aaf38cd10d31472bcec28" #id podniku Cobra
