@@ -1,7 +1,7 @@
 #' A getListOfSimilaryVenues Function
 #'
-#' This function allows pretty printing of values
-#' @param love Do you love cats? Defaults to TRUE.
+#' This function return data frame with ids of similary venues.
+#' @param idVenue 4SQ id
 #' @keywords printLog
 #' @export
 #' @examples

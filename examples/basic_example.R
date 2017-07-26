@@ -1,4 +1,3 @@
-# https://api.foursquare.com/v2/venues/search?ll=40.7,-74&client_id=EGEZCN5RL5PFM3VGIU2AX1432AAX1JCHMH5VQ0LUUEVIBN0K&client_secret=IMVCR2J05MXAHYTWROYXDPTIPXQPJJ25ALYK22FBHML4XWHW&v=20150617
 Sys.setlocale("LC_CTYPE", "en_US.UTF-8")
 library("geosugar")
 library("geosphere")	
@@ -7,7 +6,8 @@ library("rjson")
 library("httr")
 library("leaflet")
 
-# foursquare key
+# foursquare key https://developer.foursquare.com/overview/auth
+# dejte si sem svůj
 
 CLIENT_ID <- "EGEZCN5RL5PFM3VGIU2AX1432AAX1JCHMH5VQ0LUUEVIBN0K"
 CLIENT_SECRET <- "IMVCR2J05MXAHYTWROYXDPTIPXQPJJ25ALYK22FBHML4XWHW"
@@ -21,24 +21,24 @@ lon <- "14.4212446"
 
 exampleVenues <- getListNearVenues(lat,lon,radius = 100)
 
-qmplot(lng, lat, data = exampleVenues, geom = c('point'), source="stamen", zoom=15, colour = I('blue'))
-
-
+# jednoduchá mapa
 m <- leaflet() %>%
   addTiles() %>%  # Add default OpenStreetMap map tiles
   addMarkers(lng=exampleVenues$lng, lat=exampleVenues$lat, popup=exampleVenues$name)
 m 
 
 
-# detail
+# detail mista
 getVenueDetail("4f316546e4b0f99d8848b341")
 
+# venues podobne 4SQ mistu
 exampleSimilary <- getListOfSimilaryVenues("4f316546e4b0f99d8848b341")
 
+# venues podobne 4SQ mistu
 exampleNext <- getListOfNextVenues("4f316546e4b0f99d8848b341")
 
 
-### siť hipster Cobra
+### siť podniku podobnych hipster podniku Cobra
 startPoint <- "575aaf38cd10d31472bcec28" #id podniku Cobra
 prvniLevel <- getListOfNextVenues(startPoint)
 druhyLevelList <- as.vector(prvniLevel$to)
@@ -79,13 +79,13 @@ for(i in allVenuesPoCobre) {
 write.csv(detailsPoCobre, "detailsPoCobre.csv")
 
 ####
-lat <- "50.0710874"
-lon <- "19.8998662"
+lat <- "50.0291164"
+lon <- "13.3641198"
 
 distanceX <- 10000 # metrs
 distanceY <- 20000 # metrs
 
-steps <- 200 # metrs
+steps <- 1000 # metrs
 radius <- 90 # direction
 
 # list with geopoints
@@ -119,3 +119,7 @@ for(i in 1:nrow(maticeMesto)) {
 
 }
 dfVenuesGPS <- unique(dfVenuesGPS) # data with Foursquare's objects
+m <- leaflet() %>%
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  addMarkers(lng=dfVenuesGPS$lng, lat=dfVenuesGPS$lat, popup=dfVenuesGPS$name)
+m 

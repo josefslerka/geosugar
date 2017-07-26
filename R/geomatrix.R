@@ -1,8 +1,10 @@
-#' A getVenueDetail Function
+#' A geomatrix Function
 #'
-#' This function allows pretty printing of values
-#' @param love Do you love cats? Defaults to TRUE.
-#' @keywords printLog
+#' This function return matrix with geolocated squeres points with specific distance
+#' @param lat Do you love cats? Defaults to TRUE.
+#' @param lon Do you love cats? Defaults to TRUE.
+#' @param distanceX Do you love cats? Defaults to TRUE.
+#' @param distanceY Do you love cats? Defaults to TRUE.
 #' @export
 #' @examples
 #' a <- "1234"

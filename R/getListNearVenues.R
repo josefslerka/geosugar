@@ -1,12 +1,14 @@
 #' A getListNearVenues Function
 #'
-#' This function allows pretty printing of values
-#' @param love Do you love cats? Defaults to TRUE.
-#' @keywords printLog
+#' This function return data frame with 50 venues around GPS point
+#' @param latVenue latitude
+#' @param lonVenue longitude
+#' @param radius search radius in meteres
 #' @export
 #' @examples
-#' a <- "1234"
-#' cat_function(a)
+#' lat <- "50.0850165"
+#' lon <- "14.4212446"
+#' exampleVenues <- getListNearVenues(lat,lon,radius = 100)
 #' 
 getListNearVenues <- function(latVenue,lonVenue,radius=500) {
 
@@ -33,8 +35,6 @@ getListNearVenues <- function(latVenue,lonVenue,radius=500) {
 									country <- character()
 
 				)
-
-
 
 			url <- paste0(
 				"https://api.foursquare.com/v2/venues/search?ll=",

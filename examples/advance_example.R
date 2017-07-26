@@ -1,16 +1,16 @@
 
 library("Rfacebook")
-library(sugar)
-library(geosugar)
+library("sugar")
+library("geosugar")
 
-token <- fbOAuth(app_id="105261629503772", app_secret="3ae28d93ced1153e5c1a4142f1686a38")
+
+token <- "EAACEdEose0cBAPrJKBJ2duSVcyriceOWJeW0iRAWW52PLExYNBy3gWQnXrojxJy0BCJTA90qAfZBoGIYYgrdZBMb4bFfMmABrbBrEDNoDPumlMV5cUsEGkDCoM34fpCLdZCS6CkoUrqNxO54cOBxAOvPYzCZCYzpphMexd6a6OHWVklqcSSiK54othHy94oZD"
 Sys.sleep(4)
 graphFacebook = "https://graph.facebook.com/"
 
-
-mapaName <- tbl
+mapaName <- read.csv("detailsPoCobre.csv")
 enrich <- data.frame()
-for(i in 1:nrow(mapaName[1:50,])) {
+for(i in 1:nrow(mapaName)) {
 	tmp <- getListNearFacebookVenues(lat = as.character(mapaName[i,]$lat), 
 		lon = as.character(mapaName[i,]$lng) ,
 		q = as.character(mapaName[i,]$name),
