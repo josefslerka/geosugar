@@ -5,8 +5,8 @@
 #' @keywords printLog
 #' @export
 #' @examples
-#' a <- "1234"
-#' cat_function(a)
+#' 
+#' getVenueDetail("4bb135eaf964a520c2833ce3")
 #' 
 getVenueDetail <- function(idVenue, log = "TRUE") {
 

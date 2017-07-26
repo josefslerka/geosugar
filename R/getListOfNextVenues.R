@@ -1,12 +1,12 @@
 #' A getListOfNextVenues Function
 #'
-#' This function allows pretty printing of values
-#' @param love Do you love cats? Defaults to TRUE.
+#' This function return next venues on 4SQ
+#' @param idVenue 4sq venue id
 #' @keywords printLog
 #' @export
 #' @examples
-#' a <- "1234"
-#' cat_function(a)
+#' getListOfNextVenues("4bb135eaf964a520c2833ce3")
+#' 
 #' 
 getListOfNextVenues <- function(idVenue, log = "TRUE") {
 

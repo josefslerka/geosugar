@@ -1,12 +1,16 @@
 #' A getWikipediaVenuesGPS Function
 #'
-#' This function allows pretty printing of values
-#' @param love Do you love cats? Defaults to TRUE.
+#' This return geolocated wiki pages. 
+#' @param lat latitude
+#' @param lon longitude
+#' @param distance in meters
+#' @param lang language (default is cs)
 #' @keywords printLog
 #' @export
 #' @examples
-#' a <- "1234"
-#' cat_function(a)
+#' lat <- "50.02912"
+#' lon <- "13.36412"
+#' zihle <- getWikipediaVenuesGPS(lat,lon,"10000")
 #' 
 getWikipediaVenuesGPS <- function(lat,lon,distance,lang="cs") {
 	

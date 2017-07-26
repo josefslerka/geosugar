@@ -1,7 +1,9 @@
-#' A getListNearVenues Function
+#' A getListNearFacebookVenues Function
 #'
-#' This function allows pretty printing of values
-#' @param love Do you love cats? Defaults to TRUE.
+#' This function return geolocated facebook pages
+#' @param lat latitude
+#' @param lon longitude
+#' @param distance distance
 #' @keywords printLog
 #' @export
 #' @examples
