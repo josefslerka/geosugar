@@ -7,14 +7,14 @@
 getVenueDetail(idVenue, log = "TRUE")
 }
 \arguments{
-\item{love}{Do you love cats? Defaults to TRUE.}
+\item{idVenue}{4sq venue detail}
 }
 \description{
-This function allows pretty printing of values
+This function return 4sq venue details
 }
 \examples{
-a <- "1234"
-cat_function(a)
+
+getVenueDetail("4bb135eaf964a520c2833ce3")
 
 }
 \keyword{printLog}

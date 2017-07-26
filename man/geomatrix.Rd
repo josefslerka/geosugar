@@ -2,19 +2,24 @@
 % Please edit documentation in R/geomatrix.R
 \name{geomatrix}
 \alias{geomatrix}
-\title{A getVenueDetail Function}
+\title{A geomatrix Function}
 \usage{
 geomatrix(lat, lon, distanceX, distanceY, steps, radius = 90)
 }
 \arguments{
-\item{love}{Do you love cats? Defaults to TRUE.}
+\item{lat}{Do you love cats? Defaults to TRUE.}
+
+\item{lon}{Do you love cats? Defaults to TRUE.}
+
+\item{distanceX}{Do you love cats? Defaults to TRUE.}
+
+\item{distanceY}{Do you love cats? Defaults to TRUE.}
 }
 \description{
-This function allows pretty printing of values
+This function return matrix with geolocated squeres points with specific distance
 }
 \examples{
 a <- "1234"
 cat_function(a)
 
 }
-\keyword{printLog}

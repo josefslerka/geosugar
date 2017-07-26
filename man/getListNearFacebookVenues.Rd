@@ -2,15 +2,19 @@
 % Please edit documentation in R/getListNearFacebookVenues.R
 \name{getListNearFacebookVenues}
 \alias{getListNearFacebookVenues}
-\title{A getListNearVenues Function}
+\title{A getListNearFacebookVenues Function}
 \usage{
 getListNearFacebookVenues(lat, lon, distance = 1000, q = "")
 }
 \arguments{
-\item{love}{Do you love cats? Defaults to TRUE.}
+\item{lat}{latitude}
+
+\item{lon}{longitude}
+
+\item{distance}{distance}
 }
 \description{
-This function allows pretty printing of values
+This function return geolocated facebook pages
 }
 \examples{
 a <- "1234"

@@ -7,14 +7,18 @@
 getListNearVenues(latVenue, lonVenue, radius = 500)
 }
 \arguments{
-\item{love}{Do you love cats? Defaults to TRUE.}
+\item{latVenue}{latitude}
+
+\item{lonVenue}{longitude}
+
+\item{radius}{search radius in meteres}
 }
 \description{
-This function allows pretty printing of values
+This function return data frame with 50 venues around GPS point
 }
 \examples{
-a <- "1234"
-cat_function(a)
+lat <- "50.0850165"
+lon <- "14.4212446"
+exampleVenues <- getListNearVenues(lat,lon,radius = 100)
 
 }
-\keyword{printLog}

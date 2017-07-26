@@ -7,10 +7,10 @@
 getListOfSimilaryVenues(idVenue, log = "TRUE")
 }
 \arguments{
-\item{love}{Do you love cats? Defaults to TRUE.}
+\item{idVenue}{4SQ id}
 }
 \description{
-This function allows pretty printing of values
+This function return data frame with ids of similary venues.
 }
 \examples{
 a <- "1234"

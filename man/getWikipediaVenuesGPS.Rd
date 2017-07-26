@@ -7,14 +7,21 @@
 getWikipediaVenuesGPS(lat, lon, distance, lang = "cs")
 }
 \arguments{
-\item{love}{Do you love cats? Defaults to TRUE.}
+\item{lat}{latitude}
+
+\item{lon}{longitude}
+
+\item{distance}{in meters}
+
+\item{lang}{language (default is cs)}
 }
 \description{
-This function allows pretty printing of values
+This return geolocated wiki pages.
 }
 \examples{
-a <- "1234"
-cat_function(a)
+lat <- "50.02912"
+lon <- "13.36412"
+zihle <- getWikipediaVenuesGPS(lat,lon,"10000")
 
 }
 \keyword{printLog}
