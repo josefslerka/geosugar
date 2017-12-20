@@ -45,20 +45,20 @@ exampleNext <- getListOfNextVenues("4f316546e4b0f99d8848b341")
 hooters <- getVenueDetailMultimedia("5346651f498e32df69ee5be1")
 
 ### siť podniku podobnych hipster podniku Cobra
-startPoint <- "575aaf38cd10d31472bcec28" #id podniku Cobra
-prvniLevel <- getListOfNextVenues(startPoint)
+startPoint <- "4fab9efee4b03a9d6ad49052" #id podniku Cobra
+prvniLevel <- getListOfSimilaryVenues(startPoint)
 druhyLevelList <- as.vector(prvniLevel$to)
 
 druhyLevel <- data.frame()
 for(i in druhyLevelList) {
-	druhyLevelTmpNext <- getListOfNextVenues(i)
+	druhyLevelTmpNext <- getListOfSimilaryVenues(i)
 	druhyLevel <- rbind(druhyLevel, druhyLevelTmpNext)
 }
 
 tretiLevelList <- as.vector(druhyLevel$to)
 tretiLevel <- data.frame()
 for(i in tretiLevelList) {
-	tretiLevelTmpNext <- getListOfNextVenues(i)
+	tretiLevelTmpNext <- getListOfSimilaryVenues(i)
 	tretiLevel <- rbind(tretiLevel, tretiLevelTmpNext)
 }
 
@@ -72,7 +72,9 @@ g <- graph.data.frame(kamPoCobre, directed=TRUE)
 plot(g, vertex.size=3, vertex.label=V(g)$name, vertex.label.dist=0.4, layout=layout.fruchterman.reingold, 
 	edge.arrow.size=0.1)
 
-write.graph(g, "kamPoCobre.graphml", format="graphml")
+hrany <- get.edgelist(g)
+write.csv(hrany, "poCobre.csv", row.names = FALSE)
+
 
 allVenuesPoCobre <- c(as.vector(kamPoCobre$from),as.vector(kamPoCobre$to))
 allVenuesPoCobre <- unique(allVenuesPoCobre)

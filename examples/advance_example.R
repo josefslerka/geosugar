@@ -11,12 +11,18 @@ graphFacebook = "https://graph.facebook.com/"
 mapaName <- read.csv("detailsPoCobre.csv")
 enrich <- data.frame()
 for(i in 1:nrow(mapaName)) {
-	tmp <- getListNearFacebookVenues(lat = as.character(mapaName[i,]$lat), 
-		lon = as.character(mapaName[i,]$lng) ,
-		q = as.character(mapaName[i,]$name),
-		distance = 300)
-	if(nrow(tmp)>0) {
-		tmp$osmid <- as.character(mapaName[i,]$id)
-		enrich <- rbind(enrich, tmp)
-	}
+	Sys.sleep(5)
+		result <- tryCatch({ 
+			tmp <- getListNearFacebookVenues(lat = as.character(mapaName[i,]$lat), 
+				lon = as.character(mapaName[i,]$lng) ,
+				q = as.character(mapaName[i,]$name),
+				distance = 300)
+			if(nrow(tmp)>0) {
+				tmp$osmid <- as.character(mapaName[i,]$id)
+				enrich <- rbind(enrich, tmp)
+			}
+	 }, error = function(errorCondition) {
+		print(as.character(errorCondition))
+  	})  
 }
+
